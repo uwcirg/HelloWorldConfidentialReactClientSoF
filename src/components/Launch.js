@@ -17,11 +17,12 @@ export default function Launch() {
         let patientId = urlParams.get('patient');
         console.log("patient id from url query string: ", patientId);
     
-        fetch('launch-context.json', {
+        fetch('/auth/auth-info', {
             // include cookies in request
             credentials: 'include'
         })
         .then(result => {
+	    console.log("auth-info results: ", result)
             if (!result.ok) {
                 throw Error(result.status);
             }

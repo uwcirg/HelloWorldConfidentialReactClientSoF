@@ -53,5 +53,6 @@
     "@rescripts/utilities": "0.0.8",
     "cql-execution": "^2.4.1",
     "worker-loader": "^3.0.8"
-  }
+  },
+  "proxy": "http://localtest.me:5000"
 }
