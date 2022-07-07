@@ -11,4 +11,4 @@ SOF_CLIENT_ID = os.getenv("SOF_CLIENT_ID", "HelloWorldConfidential")
 SOF_CLIENT_SECRET = os.getenv("SOF_CLIENT_SECRET", "b3f3793f-7f9f-471b-9138-81744a2974e7")
 SOF_CLIENT_SCOPES = os.getenv("SOF_CLIENT_SCOPES", "patient/*.read launch/patient")
 
-LAUNCH_DEST = os.getenv("LAUNCH_DEST")
+LAUNCH_DEST = os.getenv("LAUNCH_DEST", "localtest.me:3000")
