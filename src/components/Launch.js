@@ -16,19 +16,24 @@ export default function Launch() {
          //retrieve patient id from URL querystring if any
         let patientId = urlParams.get('patient');
         console.log("patient id from url query string: ", patientId);
+
+        const backendAuthURL = process.env.REACT_APP_BACKEND_URL;
     
-        fetch('/auth/auth-info', {
+        fetch(`${backendAuthURL}/auth/auth-info`, {
             // include cookies in request
             credentials: 'include'
         })
+        .then(result => result.json())
         .then(result => {
-	    console.log("auth-info results: ", result)
+	        console.log("auth-info results: ", result)
             if (!result.ok) {
                 throw Error(result.status);
             }
             return result.json();
         })
-        .catch(e => setError(e))
+        .catch(e => {
+            setError(e);
+        })
         .then(json => {
             if (patientId) {
                 //only do this IF patient id comes from url queryString
